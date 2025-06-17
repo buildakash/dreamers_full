@@ -1,0 +1,28 @@
+
+project_id = "nxsrxdlsnabpshncdplv"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "storage", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[auth]
+enabled = true
+port = 54324
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["https://lovable.dev"]
+jwt_expiry = 3600
+enable_signup = true
+email_double_confirm_changes = true
+enable_manual_linking = false
+
+[functions.handle-approval]
+verify_jwt = false
+
+[functions.send-approval-email]
+verify_jwt = true
+
+[functions.send-status-notification]
+verify_jwt = false
